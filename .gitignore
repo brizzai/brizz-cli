@@ -1,0 +1,10 @@
+# Released artifacts — attached to GitHub Releases, never committed
+/bin/
+/dist/
+
+# Editor/OS cruft
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo

@@ -1,0 +1,14 @@
+{
+  "name": "brizz",
+  "version": "0.1.0",
+  "description": "Brizz CLI plugin — Skills and commands for working with the Brizz product analytics platform from Claude Code.",
+  "author": {
+    "name": "Brizz",
+    "email": "support@brizz.ai",
+    "url": "https://brizz.ai"
+  },
+  "homepage": "https://github.com/brizzai/brizz-cli",
+  "repository": "https://github.com/brizzai/brizz-cli",
+  "license": "MIT",
+  "keywords": ["brizz", "analytics", "observability", "ai-agents", "cli"]
+}

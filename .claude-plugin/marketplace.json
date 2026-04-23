@@ -1,0 +1,19 @@
+{
+  "name": "brizzai",
+  "owner": {
+    "name": "Brizz",
+    "email": "support@brizz.ai",
+    "url": "https://brizz.ai"
+  },
+  "plugins": [
+    {
+      "name": "brizz",
+      "source": "./plugins/brizz",
+      "description": "Brizz CLI integration for Claude Code — run `brizz` commands and load Brizz skills.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Brizz"
+      }
+    }
+  ]
+}
