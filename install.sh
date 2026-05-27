@@ -129,6 +129,13 @@ tar -xzf "$TMP_DIR/$ARCHIVE_NAME" -C "$TMP_DIR"
 mkdir -p "$INSTALL_DIR"
 install -m 0755 "$TMP_DIR/$BIN_NAME" "$INSTALL_DIR/$BIN_NAME"
 
+# Strip macOS quarantine xattr defensively. curl-in-Terminal does not set
+# it, but if this script runs in a context that did (e.g. piped after a
+# browser download), Gatekeeper would otherwise block first execution.
+if [[ "$OS" == "Darwin" ]] && command -v xattr >/dev/null 2>&1; then
+    xattr -dr com.apple.quarantine "$INSTALL_DIR/$BIN_NAME" 2>/dev/null || true
+fi
+
 echo
 echo "Installed $BIN_NAME ${VERSION} to $INSTALL_DIR/$BIN_NAME"
 

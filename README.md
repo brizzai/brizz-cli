@@ -8,21 +8,31 @@ This repo hosts compiled binaries, install scripts, and the Claude Code plugin m
 
 ## Install
 
+### macOS & Linux (shell — recommended)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/brizzai/brizz-cli/master/install.sh | sh
+```
+
 ### macOS (Homebrew)
 
 ```bash
 brew install brizzai/tap/brizz-cli
 ```
 
-### macOS & Linux (shell)
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/brizzai/brizz-cli/master/install.sh | sh
-```
-
 ### Windows
 
 Download `brizz-cli_*_Windows_x86_64.zip` from the [Releases](https://github.com/brizzai/brizz-cli/releases) page, extract, and add `brizz.exe` to your `PATH`.
+
+### macOS: "Apple could not verify brizz"
+
+If you downloaded the binary directly from the [Releases](https://github.com/brizzai/brizz-cli/releases) page (rather than via the installer script or Homebrew), macOS Gatekeeper may block first execution with an "Apple could not verify" dialog. Remove the quarantine attribute:
+
+```bash
+xattr -d com.apple.quarantine $(which brizz)
+```
+
+Then re-run `brizz`. The shell installer and Homebrew paths above handle this automatically.
 
 ## Quick start
 
