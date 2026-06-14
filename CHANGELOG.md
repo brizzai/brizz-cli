@@ -4,6 +4,14 @@ All notable changes to the Brizz CLI are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.3] — 2026-06-14
+
+Investigation by intent: survey user-intent clusters and drill into the issues within each.
+
+- `brizz intents list` — intent clusters ranked by open-issue count, with top keywords; leaf clusters by default (`--include-parents` for category rows), `--search` filters by label.
+- `brizz intents investigate <intent>` — agent-ready bundle (TTY card / markdown / JSON) with an issue breakdown by type / severity / status, top issues, and follow-up commands; resolves an intent by full ID, UUID prefix, exact label, or substring.
+- `brizz issues list --intent <name|id>` — scope an issue list to one intent cluster.
+
 ## [0.2.2] — 2026-06-04
 
 Converged `issues investigate` into an AI-handoff bundle; conversations mark finding turns.
