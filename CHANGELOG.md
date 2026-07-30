@@ -4,6 +4,19 @@ All notable changes to the Brizz CLI are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] — 2026-07-30
+
+Issue investigation follows the backend's own handoff document, and the full system prompt is one command away.
+
+- `brizz issues prompt <issue-id|prefix>` — print the complete system prompt(s) captured while the issue occurred, one block per agent. `issues investigate` only points at the prompt; reach for this when the hypothesis is about prompt wording. Markdown when piped or in agent mode, a card on a terminal, `--output json` for structured.
+- `issues investigate` no longer appends its own follow-up-command section. The backend export now carries a single canonical "Investigate with the Brizz CLI" block with `--app` pinned on every command — older CLIs rendered two sections whose commands disagreed.
+- `issues evidence --error-type` takes exactly one value and now fails with a clear message when given several. The findings filter has no OR operator, so a comma-separated list previously matched nothing and returned an empty result instead of an error.
+- `sessions list` shows the session title when the backend has one.
+
+## [0.2.4] — 2026-07-05
+
+- `BRIZZ_API_KEY` environment variable — supply a personal API key per command without persisting it to `~/.brizz/config.yaml`, for CI and headless agents. It takes precedence over the stored credential when set; `brizz auth login` (browser) and `brizz auth login --api-key` are unchanged when it is not. `brizz auth whoami` reports which source the active key came from.
+
 ## [0.2.3] — 2026-06-14
 
 Investigation by intent: survey user-intent clusters and drill into the issues within each.
