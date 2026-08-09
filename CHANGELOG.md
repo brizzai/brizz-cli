@@ -4,6 +4,20 @@ All notable changes to the Brizz CLI are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.1] — 2026-08-09
+
+`sessions conversation` now reads the same transcript the dashboard and the MCP do, and `issues prompt --output json` returns the prompt rather than the whole issue export.
+
+- **`--limit` and `--cursor` on `sessions conversation` now count conversation turns, not spans.** A page of 100 is 100 turns; previously one span could expand into several. A cursor minted by an older CLI still decodes but points somewhere different — re-page from the start.
+- **`sessions conversation` hides system prompts by default**, following your organization's conversation preference, which is off unless you turn it on. Pass `--system-prompts` to show them for one call, or `--no-system-prompts` to hide them when the preference is on. Only the top-level prompt is shown, matching the dashboard.
+- **`--raw` no longer accepts `--issue` or a `--limit` above 200**, both of which it previously accepted and quietly ignored. `--raw` resolves no issues — pass `--finding-span` there — and the endpoint it reads caps a page at 200.
+- `sessions conversation` and its browse view read the materialized transcript, so filtering and ordering run across the whole session rather than one page. Display duplicates no longer leak across a page boundary, and turns arrive in the dashboard's order.
+- Finding markers are resolved server-side. A finding whose own turn is hidden as a duplicate is marked on the turn that replaced it, and one that cannot be placed is named with its span id — with the flag that recovers it — instead of being dropped in silence.
+- `--around-finding` pages to the finding when it falls outside the current window. It previously returned the whole transcript with nothing marked whenever the finding sat past the first page.
+- Conversation output now says what it is not showing: a session still being processed (with a retry hint), a transcript past the per-read cap, and findings it could not place.
+- `--issue` no longer downloads the whole AI export just to read finding spans.
+- `issues prompt --output json` returns the prompt payload — `system_prompt_captured`, the per-agent `prompts`, and an `agents` roster — instead of the whole issue export. Markdown, terminal and error output are unchanged.
+
 ## [0.3.0] — 2026-07-30
 
 Issue investigation follows the backend's own handoff document, and the full system prompt is one command away.
