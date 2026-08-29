@@ -42,10 +42,26 @@ claude plugin marketplace add brizzai/brizz-cli
 claude plugin install brizz@brizzai
 ```
 
+Installing the plugin also registers the hosted **Brizz MCP server**
+(`https://platform.brizz.dev/mcp`), so Claude Code can query sessions, issues, and metrics
+without the CLI. Authorize it from `/mcp` on first use.
+
+It ships three skills:
+
+| Skill | For |
+|---|---|
+| `brizz-setup` | Install the CLI, authenticate, set tenant/app scope, verify the connection |
+| `brizz-instrument` | Add the Brizz SDK to an app, or fix one that sends nothing |
+| `brizz-investigate` | Investigate sessions, issues, and evidence with `brizz` |
+
 ## Reporting issues
 
 https://github.com/brizzai/brizz-cli/issues
 
 ## License
 
-Proprietary — see [LICENSE](./LICENSE).
+The contents of this repository — the install script, the Claude Code plugin
+and its skills, and the documentation — are MIT licensed; see [LICENSE](./LICENSE).
+
+The compiled `brizz` binaries on the [Releases](https://github.com/brizzai/brizz-cli/releases)
+page are distributed under separate commercial terms.

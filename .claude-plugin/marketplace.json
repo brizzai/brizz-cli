@@ -1,5 +1,6 @@
 {
   "name": "brizzai",
+  "description": "Official Brizz plugins for Claude Code — product analytics and observability for AI agents.",
   "owner": {
     "name": "Brizz",
     "email": "support@brizz.ai",
@@ -9,8 +10,9 @@
     {
       "name": "brizz",
       "source": "./plugins/brizz",
-      "description": "Brizz CLI integration for Claude Code — run `brizz` commands and load Brizz skills.",
-      "version": "0.1.0",
+      "description": "Connect Claude Code to Brizz — instrument an AI agent, then investigate its sessions, issues, and cost. Bundles the Brizz MCP server and the `brizz` CLI skills.",
+      "category": "monitoring",
+      "homepage": "https://github.com/brizzai/brizz-cli",
       "author": {
         "name": "Brizz"
       }

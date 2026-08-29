@@ -1,9 +1,9 @@
 ---
-name: brizz-cli
+name: brizz-investigate
 description: Use the Brizz CLI (`brizz`) to investigate production issues, failed sessions, and analytics for AI agents and LLM apps. Trigger whenever the user asks to investigate failures, debug a production AI agent, summarize what's broken today, look at user complaints, find sessions/issues/evidence, query analytics metrics, or mentions Brizz, brizz-cli, or brz. Also trigger on phrases like "what failed", "what's wrong with the agent", "investigate this user", "show me issues", "summarize last 24h", "top failing sessions", or any request to drill into LLM workload telemetry.
 ---
 
-# Brizz CLI
+# Investigate with the Brizz CLI
 
 `brizz` is a read-only, tenant-scoped analytics CLI over the Brizz product analytics platform. It is designed agent-first: deterministic output, stable exit codes, and a `next-commands` convention that lets you self-navigate from one invocation to the next without memorising command names. Reach for it whenever the user wants to investigate failures, look at issues/sessions/evidence, or pull metrics from a Brizz-instrumented LLM workload.
 
@@ -143,6 +143,7 @@ Treat `brizz agent-guide` as the source of truth for any flag detail this skill 
 
 ## What this skill is not for
 
-- **Mutations.** `brizz` is read-only. If the user asks to delete or modify data, it's not a brizz task — direct them to the dashboard or backend API.
+- **Mutations.** `brizz` is read-only. If the user asks to delete or modify data, it's not a brizz task — direct them to the dashboard, the backend API, or the write-capable `brizz_*` MCP tools this plugin also installs.
 - **Dashboard scraping or hand-rolled API calls.** If you're tempted to `curl` the Brizz API, run `brizz` first; it almost certainly already has the command.
-- **Setup help.** If `brizz` isn't on PATH, point the user at the install instructions at https://github.com/brizzai/brizz-cli — don't try to build from source.
+- **Setup help.** If `brizz` isn't on PATH or `whoami` exits 2, use the **brizz-setup** skill — don't try to build from source.
+- **Getting telemetry to exist.** An empty result usually means the app isn't instrumented, not that the CLI failed. That's the **brizz-instrument** skill.

@@ -1,7 +1,8 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "brizz",
-  "version": "0.1.0",
-  "description": "Brizz CLI plugin — Skills and commands for working with the Brizz product analytics platform from Claude Code.",
+  "version": "0.2.0",
+  "description": "Brizz for Claude Code — connects the Brizz MCP server and ships skills for instrumenting an AI agent, then investigating its sessions, issues, and cost with the `brizz` CLI.",
   "author": {
     "name": "Brizz",
     "email": "support@brizz.ai",
@@ -10,5 +11,22 @@
   "homepage": "https://github.com/brizzai/brizz-cli",
   "repository": "https://github.com/brizzai/brizz-cli",
   "license": "MIT",
-  "keywords": ["brizz", "analytics", "observability", "ai-agents", "cli"]
+  "keywords": [
+    "brizz",
+    "analytics",
+    "observability",
+    "ai-agents",
+    "llm",
+    "opentelemetry",
+    "cli"
+  ],
+  "mcpServers": {
+    "brizz": {
+      "type": "http",
+      "url": "https://platform.brizz.dev/mcp",
+      "headers": {
+        "x-brizz-mcp-consumer": "plugin"
+      }
+    }
+  }
 }
