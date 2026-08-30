@@ -4,6 +4,11 @@ All notable changes to the Brizz CLI are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.2] — 2026-08-30
+
+- **`--json` and `--output` now beat an auto-detected agent mode.** Inside Claude Code, or with `BRIZZ_AGENT=1`, they were silently replaced with markdown. Passing `--agent` yourself still forces markdown.
+- Inside Claude Code, `brizz` advertises the Brizz plugin so the session can offer a one-time install. Prints nothing in a normal terminal; `BRIZZ_NO_PLUGIN_HINT=1` opts out.
+
 ## [0.3.1] — 2026-08-09
 
 `sessions conversation` now reads the same transcript the dashboard and the MCP do, and `issues prompt --output json` returns the prompt rather than the whole issue export.
