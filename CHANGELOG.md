@@ -4,6 +4,12 @@ All notable changes to the Brizz CLI are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.3] — 2026-09-12
+
+- **`--fields`, `--json-fields` and `--columns` now accept the field names that appear in JSON output**, alongside the short column names.
+- Projected values on `intents list` match the JSON payload.
+- Clearer handling of an unrecognised field name.
+
 ## [0.3.2] — 2026-08-30
 
 - **`--json` and `--output` now beat an auto-detected agent mode.** Inside Claude Code, or with `BRIZZ_AGENT=1`, they were silently replaced with markdown. Passing `--agent` yourself still forces markdown.
