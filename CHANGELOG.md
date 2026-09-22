@@ -4,6 +4,12 @@ All notable changes to the Brizz CLI are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.4] — 2026-09-22
+
+- **`brizz` now identifies itself to the Brizz API** as `brizz-cli/0.3.4`, and appends the AI agent it is running inside when there is one — `brizz-cli/0.3.4 (claude-code)`.
+- The agent name follows your usage-log setting: `brizz config telemetry disable`, `DO_NOT_TRACK=1` or `--no-telemetry` drops it. The version is always sent.
+- Dependency updates.
+
 ## [0.3.3] — 2026-09-12
 
 - **`--fields`, `--json-fields` and `--columns` now accept the field names that appear in JSON output**, alongside the short column names.
